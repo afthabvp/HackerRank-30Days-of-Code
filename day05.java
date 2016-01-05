@@ -1,44 +1,31 @@
-public class Person {
-  
-    int age;	
-	public Person(int initial_Age) {
-        if (initial_Age < 0) {
-            System.out.println("This person is not valid, setting age to 0.");
-            age = 0;
-        }else{
-            age = initial_Age;
+import java.io.*;
+import java.util.*;
+
+public class Solution {
+    
+    void out(int a,int b,int N){
+        int sum = a;
+        for(int j=0;j<N;j++){
+            sum +=(int)Math.pow(2, j)*b;
+            System.out.print(sum+" ");
+            
         }
-
-	}
-
-	public void amIOld() {
-        if (age < 13) {
-            System.out.println( "You are young.");
-        }else if (age < 18) {
-            System.out.println( "You are a teenager.");
-        }else {
-            System.out.println( "You are old.");
-        }
-	}
-
-	public void yearPasses() {
-         age++;
-	}
-
-	public static void main(String[] args) {
-        Scanner sc = new Scanner(System.in);
-       	int T = sc.nextInt();
-     	for (int i = 0; i < T; i++) {
-       		int age = sc.nextInt();
-       		Person p = new Person(age);
-          	p.amIOld();
-          	for (int j = 0; j < 3; j++) {
-            	p.yearPasses();
-          	}
-          	p.amIOld();
-            System.out.println();
-        }
+        System.out.println();
     }
+
+    public static void main(String[] args) {
+        Solution sol = new Solution();
+        
+       try{
+            BufferedReader br = new BufferedReader(new InputStreamReader(System.in));
+            int n = Integer.parseInt(br.readLine());
+            for (int i = 0; i < n; i++) {
+              String [] input = br.readLine().split(" ");
+              sol.out(Integer.parseInt(input[0]),Integer.parseInt(input[1]),Integer.parseInt(input[2]));
+             }
+           }catch(IOException io){
+            io.printStackTrace();
+          } 
+        
 }
-
-
+}
